@@ -48,6 +48,11 @@ export default class Calculador extends Component {
             } catch{
                 values[0] = this.state.values[0]
             }
+
+            if (!(Number.isInteger((parseInt(values[0])))) ){
+                let animation = document.getElementById("calculator");
+                animation.classList.add("animation");
+            }
             values[1] = 0
 
             this.setState({
@@ -84,7 +89,7 @@ export default class Calculador extends Component {
 
     render() {
         return (
-            <div className="calculator" >
+            <div id="calculator" className="calculator" >
 
                 <Display value={this.state.displayValue} />
                 <Button label="AC" click={this.clearMemory} triple />
